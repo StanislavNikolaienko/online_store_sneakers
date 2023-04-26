@@ -96,6 +96,22 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "django-debug-toolbar"
+version = "4.0.0"
+description = "A configurable set of panels that display various debug information about the current request/response."
+category = "main"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "django_debug_toolbar-4.0.0-py3-none-any.whl", hash = "sha256:bad339d68520652ddc1580c76f136fcbc3e020fd5ed96510a89a02ec81bb3fb1"},
+    {file = "django_debug_toolbar-4.0.0.tar.gz", hash = "sha256:89619f6e0ea1057dca47bfc429ed99b237ef70074dabc065a7faa5f00e1459cf"},
+]
+
+[package.dependencies]
+django = ">=3.2.4"
+sqlparse = ">=0.2"
+
+[[package]]
 name = "django-storages"
 version = "1.13.2"
 description = "Support for many storage backends in Django"
@@ -369,4 +385,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "3.11"
-content-hash = "0445247f3e59429ebadef6b8cb7911f68002a935882ab3bcaa2f8c45e02905bd"
+content-hash = "db64702d1e099f747313ee754b9f6ec2de6a8a2c61878db47c2bedc96e228efe"
