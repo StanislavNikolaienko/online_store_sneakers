@@ -7,7 +7,7 @@ readme = "README.md"
 packages = [{include = "online_store_sneakers 1"}]
 
 [tool.poetry.dependencies]
-python = "3.11"
+python = "3.11.3"
 django = "^4.2"
 python-decouple = "^3.8"
 psycopg2 = "^2.9.6"
