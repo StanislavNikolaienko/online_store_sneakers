@@ -14,10 +14,44 @@ psycopg2 = "^2.9.6"
 pillow = "^9.5.0"
 django-summernote = "^0.8.20.0"
 django-storages = "^1.13.2"
-boto3 = "^1.26.115"
 django-debug-toolbar = "^4.0.0"
 
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^6.0.0"
+isort = {extras = ["colors"], version = "^5.12.0"}
+flake8-pyproject = "^1.2.3"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+exclude = '''
+/(
+    \.git
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+    | env
+    | venv
+)/
+'''
+
+[tool.isort]
+# https://github.com/timothycrosley/isort/
+skip= ['bot.py']
+skip_glob = [" **/venv/*"]
+py_version = 310
+line_length = 88
+known_typing = ["typing", "types", "typing_extensions", "mypy", "mypy_extensions"]
+sections = ["FUTURE", "TYPING", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
+include_trailing_comma = true
+profile = "black"
+multi_line_output = 3
+indent = 4
+color_output = true
