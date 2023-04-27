@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "online-store-sneakers 1-1-1"
+version = "1.1.1"
+description = "online_store"
+authors = ["stanislav <lettersforstanislav@gmail.com>"]
+readme = "README.md"
+packages = [{include = "online_store_sneakers 1"}]
+
+[tool.poetry.dependencies]
+python = "3.11"
+django = "^4.2"
+python-decouple = "^3.8"
+psycopg2 = "^2.9.6"
+pillow = "^9.5.0"
+django-summernote = "^0.8.20.0"
+django-storages = "^1.13.2"
+boto3 = "^1.26.115"
+django-debug-toolbar = "^4.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
