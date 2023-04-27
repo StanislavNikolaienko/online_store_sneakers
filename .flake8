@@ -9,3 +9,4 @@ per-file-ignores =
     ./settings/prod.py:F405,F403,F401
     ./settings/staging.py:F405,F403
     ./accounts/apps.py:F40
+    ./venv/*:F405,F403,F401,E201,E202,E203,E266,E501,W503,W504,F403,F401,F405
