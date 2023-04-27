@@ -2,7 +2,15 @@
 ignore = E203, E266, E501, W503, W504, F403, F401,F405
 max-line-length = 79
 max-complexity = 18
-exclude=*/migrations/*
+exclude =
+    migrations
+    __pycache__
+    manage.py
+    settings.py
+    env
+    .env
+    venv
+
 per-file-ignores =
     ./random_file.py:E501
     ./settings/local.py:F405,F403
