@@ -13,14 +13,13 @@ repos:
       - id: check-ast
         exclude: LICENSE
 
-  - repo: local
+  - repo: https://github.com/psf/black
+    rev: 23.3.0
     hooks:
-      - id: isort
-        name: isort
-        entry: poetry run isort --settings-path pyproject.toml
-        types: [ python ]
-        language: system
-  - repo: https://github.com/pycqa/flake8.git
-    rev: 3.8.2
+      - id: black
+
+
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: 'v0.0.263'
     hooks:
-      - id: flake8
+      - id: ruff

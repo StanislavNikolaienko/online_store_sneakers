@@ -9,11 +9,13 @@ before_script:
 - python -m venv venv
 - source venv/bin/activate
 - pip install poetry
-- poetry add flake8
+- poetry add ruff
 - export PATH="/root/.local/bin:$PATH"
 stages:
-- lint
-lint:
-  stage: lint
+- linting
+linting:
+  stage: linting
+  image: registry.gitlab.com/mafda/python-linting
   script:
-    - flake8
+    - black --check
+    - ruff
