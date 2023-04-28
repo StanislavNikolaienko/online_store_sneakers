@@ -9,6 +9,8 @@ before_script:
 - virtualenv venv
 - source venv/bin/activate
 - pip install poetry
+- apt-get update -yq
+- apt-get install -y build-essential libffi-dev python3-dev
 - poetry add ruff
 - export PATH="/root/.local/bin:$PATH"
 stages:
