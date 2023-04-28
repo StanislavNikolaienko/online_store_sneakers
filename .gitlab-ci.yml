@@ -20,11 +20,11 @@ stages:
 lint_black:
   stage: linting
   script:
-    - poetry install
+    - poetry install --no-root
     - black --check .
 
 lint_ruff:
   stage: linting
   script:
-    - poetry install
+    - poetry install --no-root
     - ruff
