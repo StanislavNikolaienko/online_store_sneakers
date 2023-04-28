@@ -15,10 +15,16 @@ before_script:
 - poetry add ruff
 - export PATH="/root/.local/bin:$PATH"
 stages:
-- linting
-linting:
+  - linting
+
+lint_black:
   stage: linting
   image: registry.gitlab.com/mafda/python-linting
   script:
-    - black --check
+    - black --check .
+
+lint_ruff:
+  stage: linting
+  image: registry.gitlab.com/mafda/python-linting
+  script:
     - ruff
