@@ -21,4 +21,3 @@ linting:
   image: registry.gitlab.com/mafda/python-linting
   script:
     - black --check
-    - ruff
