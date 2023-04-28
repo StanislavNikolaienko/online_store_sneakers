@@ -7,64 +7,130 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Client',
+            name="Client",
             fields=[
-                ('id', models.BigAutoField(auto_created=True,
-                                           primary_key=True, serialize=False,
-                                           verbose_name='ID')),
-                ('name', models.CharField(max_length=50)),
-                ('email', models.EmailField(max_length=254)),
-                ('phone', models.CharField(max_length=20)),
-                ('comment', models.TextField()),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=50)),
+                ("email", models.EmailField(max_length=254)),
+                ("phone", models.CharField(max_length=20)),
+                ("comment", models.TextField()),
             ],
         ),
         migrations.CreateModel(
-            name='Order',
+            name="Order",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('amount', models.DecimalField(decimal_places=2, max_digits=10)),
-                ('creation_time', models.DateTimeField(auto_now_add=True)),
-                ('order_status', models.CharField(
-                    choices=[('PENDING', 'PENDING'), ('APPROVED', 'APPROVED'), ('REJECTED', 'REJECTED'),
-                             ('CANCELED', 'CANCELED'), ('DELIVERED', 'DELIVERED')], max_length=20)),
-                ('payment_status', models.CharField(
-                    choices=[('Waiting Payment', 'Waiting Payment'), ('Paid', 'Paid'), ('Canceled', 'Canceled')],
-                    max_length=20)),
-                ('comment', models.TextField(blank=True, null=True)),
-                ('client', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='shop_app.client')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("amount", models.DecimalField(decimal_places=2, max_digits=10)),
+                ("creation_time", models.DateTimeField(auto_now_add=True)),
+                (
+                    "order_status",
+                    models.CharField(
+                        choices=[
+                            ("PENDING", "PENDING"),
+                            ("APPROVED", "APPROVED"),
+                            ("REJECTED", "REJECTED"),
+                            ("CANCELED", "CANCELED"),
+                            ("DELIVERED", "DELIVERED"),
+                        ],
+                        max_length=20,
+                    ),
+                ),
+                (
+                    "payment_status",
+                    models.CharField(
+                        choices=[
+                            ("Waiting Payment", "Waiting Payment"),
+                            ("Paid", "Paid"),
+                            ("Canceled", "Canceled"),
+                        ],
+                        max_length=20,
+                    ),
+                ),
+                ("comment", models.TextField(blank=True, null=True)),
+                (
+                    "client",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="shop_app.client",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Product',
+            name="Product",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=50)),
-                ('price', models.DecimalField(decimal_places=2, max_digits=10)),
-                ('description', models.TextField()),
-                ('image', models.ImageField(upload_to='')),
-                ('token_product', models.CharField(max_length=255)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=50)),
+                ("price", models.DecimalField(decimal_places=2, max_digits=10)),
+                ("description", models.TextField()),
+                ("image", models.ImageField(upload_to="")),
+                ("token_product", models.CharField(max_length=255)),
             ],
         ),
         migrations.CreateModel(
-            name='Payment',
+            name="Payment",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('payment_method', models.CharField(
-                    choices=[('Waiting Payment', 'Waiting Payment'), ('Paid', 'Paid'), ('Canceled', 'Canceled')],
-                    max_length=50)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
-                ('order', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='shop_app.order')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "payment_method",
+                    models.CharField(
+                        choices=[
+                            ("Waiting Payment", "Waiting Payment"),
+                            ("Paid", "Paid"),
+                            ("Canceled", "Canceled"),
+                        ],
+                        max_length=50,
+                    ),
+                ),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
+                (
+                    "order",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="shop_app.order"
+                    ),
+                ),
             ],
         ),
         migrations.AddField(
-            model_name='order',
-            name='items',
-            field=models.ManyToManyField(to='shop_app.product'),
+            model_name="order",
+            name="items",
+            field=models.ManyToManyField(to="shop_app.product"),
         ),
     ]

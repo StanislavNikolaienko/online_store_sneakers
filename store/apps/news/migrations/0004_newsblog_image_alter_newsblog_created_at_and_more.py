@@ -4,25 +4,24 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('news', '0003_newsblog_updated_at'),
+        ("news", "0003_newsblog_updated_at"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='newsblog',
-            name='image',
-            field=models.ImageField(blank=True, null=True, upload_to='news_blog'),
+            model_name="newsblog",
+            name="image",
+            field=models.ImageField(blank=True, null=True, upload_to="news_blog"),
         ),
         migrations.AlterField(
-            model_name='newsblog',
-            name='created_at',
-            field=models.DateTimeField(auto_now_add=True, verbose_name='Created At'),
+            model_name="newsblog",
+            name="created_at",
+            field=models.DateTimeField(auto_now_add=True, verbose_name="Created At"),
         ),
         migrations.AlterField(
-            model_name='newsblog',
-            name='updated_at',
-            field=models.DateTimeField(auto_now=True, verbose_name='Updated At'),
+            model_name="newsblog",
+            name="updated_at",
+            field=models.DateTimeField(auto_now=True, verbose_name="Updated At"),
         ),
     ]

@@ -2,26 +2,26 @@ from django.db import models
 
 
 class OrderStatus(models.TextChoices):
-    PENDING = 'PENDING', 'PENDING'
-    APPROVED = 'APPROVED', 'APPROVED'
-    REJECTED = 'REJECTED', 'REJECTED'
-    CANCELED = 'CANCELED', 'CANCELED'
-    DELIVERED = 'DELIVERED', 'DELIVERED'
+    PENDING = "PENDING", "PENDING"
+    APPROVED = "APPROVED", "APPROVED"
+    REJECTED = "REJECTED", "REJECTED"
+    CANCELED = "CANCELED", "CANCELED"
+    DELIVERED = "DELIVERED", "DELIVERED"
 
 
 class PaymentStatus(models.TextChoices):
-    WAITING_PAYMENT = 'Waiting Payment', 'Waiting Payment'
-    PAID = 'Paid', 'Paid'
-    CANCELED = 'Canceled', 'Canceled'
+    WAITING_PAYMENT = "Waiting Payment", "Waiting Payment"
+    PAID = "Paid", "Paid"
+    CANCELED = "Canceled", "Canceled"
 
 
 class PaymentMethod(models.TextChoices):
-    CASH = 'Cash', 'Cash'
-    CARD = 'Card', 'Card'
+    CASH = "Cash", "Cash"
+    CARD = "Card", "Card"
 
 
 class Payment(models.Model):
-    order = models.ForeignKey('Order', on_delete=models.CASCADE)
+    order = models.ForeignKey("Order", on_delete=models.CASCADE)
     payment_method = models.CharField(max_length=50, choices=PaymentMethod.choices)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
