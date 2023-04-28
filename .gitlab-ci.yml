@@ -8,6 +8,8 @@ before_script:
 - python -m pip install --upgrade pip
 - pip install virtualenv
 - virtualenv venv
+- apt-get update -yq
+- apt-get install -yq build-essential libffi-dev
 - source venv/bin/activate
 - pip install poetry
 - poetry add ruff
