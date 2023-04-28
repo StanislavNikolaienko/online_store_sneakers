@@ -3,10 +3,11 @@ variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 cache:
   paths:
-  - ".cache/pip"
-  - venv/
+  - $CI_PROJECT_DIR/.cache/pip
 before_script:
-- python -m venv venv
+- python 3.11.0
+- pip install virtualenv
+- virtualenv venv
 - source venv/bin/activate
 - pip install poetry
 - poetry add ruff
