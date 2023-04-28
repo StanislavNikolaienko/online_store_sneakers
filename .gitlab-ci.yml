@@ -7,7 +7,6 @@ before_script:
   - source venv/bin/activate
   - python -V
   - pip install poetry
-  - poetry install
   - export PATH="/root/.local/bin:$PATH"
 
 cache:
@@ -21,9 +20,11 @@ stages:
 lint_black:
   stage: linting
   script:
+    - poetry install
     - black --check .
 
 lint_ruff:
   stage: linting
   script:
+    - poetry install
     - ruff
