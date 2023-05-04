@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  sneakers_db:
+    image: postgres:13.4-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+        - POSTGRES_DB=postgres
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=postgres
+  django:
+    container_name: django_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bash -c "python /python_docker/store/manage.py makemigrations && 
+             python /python_docker/store/manage.py migrate &&
+             python /python_docker/store/manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/python_docker
+    ports:
+        - 8000:8000
+    depends_on:
+      - sneakers_db
+volumes:
+    postgres_data:
