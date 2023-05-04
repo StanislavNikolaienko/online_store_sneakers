@@ -1,7 +1,6 @@
 import os
 from pathlib import Path
 
-from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "TEST-KEY"
@@ -135,7 +134,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 MEDIA_URL = "/mediafiles/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "mediafiles")
-
-XRapidAPIKey = config("XRapidAPIKey")
-XRapidAPIHost = config("XRapidAPIHost")
-XRapidAPI_URL = config("XRapidAPI_URL")
