@@ -1,0 +1,29 @@
+image: python:3.11.0
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+before_script:
+  - python -m venv venv
+  - source venv/bin/activate
+  - python -V
+  - pip install poetry
+  - poetry install --no-root
+  - export PATH="/root/.local/bin:$PATH"
+
+cache:
+  paths:
+    - .cache/pip
+    - venv/
+
+stages:
+  - linting
+
+lint_black:
+  stage: linting
+  script:
+    - black --check .
+
+lint_ruff:
+  stage: linting
+  script:
+    - ruff .

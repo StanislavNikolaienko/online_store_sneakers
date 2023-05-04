@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('news', '0002_alter_newsblog_options_remove_newsblog_description_and_more'),
+        ("news", "0002_alter_newsblog_options_remove_newsblog_description_and_more"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='newsblog',
-            name='updated_at',
+            model_name="newsblog",
+            name="updated_at",
             field=models.DateTimeField(auto_now=True),
         ),
     ]
