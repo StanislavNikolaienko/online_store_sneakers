@@ -1,9 +1,9 @@
 import os
 from pathlib import Path
-
+from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY = "TEST-KEY"
+SECRET_KEY = config("DJANGO_SECRET_KEY")
 DEBUG = "True"
 
 ALLOWED_HOSTS = ["0.0.0.0"]
