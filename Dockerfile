@@ -12,7 +12,6 @@ ENV sneakers=${sneakers}\
     POETRY_VERSION=1.4.2
 
 RUN pip install "poetry==$POETRY_VERSION"
-# RUN mkdir /python_docker
 WORKDIR ./python_docker
 COPY poetry.lock pyproject.toml  ./
 
