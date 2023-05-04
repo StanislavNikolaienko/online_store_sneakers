@@ -4,10 +4,9 @@ version = "1.1.1"
 description = "online_store"
 authors = ["stanislav <lettersforstanislav@gmail.com>"]
 readme = "README.md"
-packages = [{include = "online_store_sneakers 1"}]
 
 [tool.poetry.dependencies]
-python = "3.11.0"
+python = "^3.11.0"
 django = "^4.2"
 python-decouple = "^3.8"
 psycopg2 = "^2.9.6"
@@ -15,6 +14,7 @@ pillow = "^9.5.0"
 django-summernote = "^0.8.20.0"
 django-storages = "^1.13.2"
 django-debug-toolbar = "^4.0.0"
+psycopg2-binary = "^2.9.6"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -22,7 +22,7 @@ black = "^23.3.0"
 ruff = "^0.0.263"
 
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core>=1.4.2"]
 build-backend = "poetry.core.masonry.api"
 
 exclude = '''
