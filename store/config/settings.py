@@ -4,10 +4,10 @@ from pathlib import Path
 from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY = config("DJANGO_SECRET_KEY")
-DEBUG = config("DEBUG", cast=bool)
+SECRET_KEY = "TEST-KEY"
+DEBUG = "True"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["0.0.0.0"]
 
 # Application definition
 
