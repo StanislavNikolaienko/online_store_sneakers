@@ -19,6 +19,7 @@ Before getting started, make sure you have the following software installed on y
 ##### Create a .env file in the project root directory with the following content:
 
 > DATABASE_URL=postgres://postgres:123@localhost:5432/sneakers
+>
 > DJANGO_SECRET_KEY=your_secret_key
 > 
 ##### Build and run the application :
