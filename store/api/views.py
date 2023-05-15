@@ -2,8 +2,8 @@ from rest_framework.decorators import api_view
 from rest_framework.generics import get_object_or_404
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from apps.shop_app.models import Product
-from .serializers import ProductSerializer
+from apps.shop_app.models import Product, Client
+from .serializers import ProductSerializer, ClientSerializer
 
 
 @api_view(["GET"])
@@ -29,6 +29,19 @@ def add_product(request):
         return Response(product.data)
     else:
         return Response(product.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(["POST"])
+def add_client(request):
+    client = ClientSerializer(data=request.data)
+
+    if Client.objects.filter(**request.data).exists():
+        raise serializers.ValidationError("Item already exists")
+    if client.is_valid():
+        client.save()
+        return Response(client.data)
+    else:
+        return Response(client.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 @api_view(["GET"])
