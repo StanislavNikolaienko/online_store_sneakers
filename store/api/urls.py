@@ -10,7 +10,7 @@ from .views.products import (
 
 urlpatterns = [
     path("sneakers/", ProductListView.as_view(), name="all_products"),
-    path("sneakers/new/", ProductCreateView.as_view(), name="add_product"),
+    path("sneakers/", ProductCreateView.as_view(), name="add_product"),
     path(
         "sneakers/<int:pk>/",
         ProductRetrieveUpdateDestroy.as_view(),
@@ -21,5 +21,5 @@ urlpatterns = [
         ProductRetrieveUpdateDestroy.as_view(),
         name="delete_product",
     ),
-    path("clients/new/", ClientCreate.as_view(), name="add_client"),
+    path("clients/", ClientCreate.as_view(), name="add_client"),
 ]
