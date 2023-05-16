@@ -32,4 +32,4 @@ lint_ruff:
 test:
     stage: test
     script:
-      - python manage.py test
+      - python store/manage.py test
