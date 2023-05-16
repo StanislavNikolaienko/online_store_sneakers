@@ -32,4 +32,4 @@ lint_ruff:
 test:
     stage: test
     script:
-      - python store/manage.py test
+      - cd test/;pytest -v --cov=../store/ --cov-report=xml --cov-report=term-missing --cov-fail-under=100
