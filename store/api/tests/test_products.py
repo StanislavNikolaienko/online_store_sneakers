@@ -23,7 +23,7 @@ class TestProduct(APITestCase):
         """
         Ensure we can create a new product object.
         """
-        url = "/api/sneakers/new/"
+        url = "/api/sneakers/"
         data = {"name": "new product", "price": "210.00"}
         response = self.client.post(url, data, format="json")
         self.assertEqual(response.status_code, status.HTTP_201_CREATED, response.data)

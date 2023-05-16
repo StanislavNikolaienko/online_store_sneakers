@@ -8,7 +8,7 @@ class TestClient(APITestCase):
         """
         Ensure we can create a new client object.
         """
-        url = "/api/clients/new/"
+        url = "/api/clients/"
         data = {
             "name": "John",
             "email": "asdw@adaw.com",

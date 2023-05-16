@@ -17,6 +17,7 @@ cache:
 
 stages:
   - linting
+  - test
 
 lint_black:
   stage: linting
@@ -27,3 +28,8 @@ lint_ruff:
   stage: linting
   script:
     - ruff .
+
+test:
+    stage: test
+    script:
+        - test
