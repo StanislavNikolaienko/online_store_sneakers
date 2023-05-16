@@ -107,7 +107,7 @@ target-version = "py311"
 max-complexity = 10
 
 [pytest]
-DJANGO_SETTINGS_MODULE = "online_store.settings"
+DJANGO_SETTINGS_MODULE = "online_store.config.settings"
 python_files = "tests.py, test_*.py, *_tests.py"
 
 [tool.pytest.ini_options]
