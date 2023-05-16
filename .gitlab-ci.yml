@@ -2,9 +2,6 @@ image: python:3.11.0
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
   DJANGO_SECRET_KEY: "django-insecure-)9i*oj8xt86)c-@il)5i#@^@&9(3x3j!_ztxk)654nv6jh#4u2"
-  db_engine : "django.db.backends.postgresql"
-  DATABASE_URL : postgres://postgres:123@localhost:5432/sneakers
-  DEBUG : True
 
 before_script:
   - python -m venv venv
@@ -36,4 +33,4 @@ lint_ruff:
 test:
     stage: test
     script:
-      - poetry run pytest
+      - python store/manage.py test
