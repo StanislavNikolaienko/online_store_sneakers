@@ -1,8 +1,14 @@
 image: python:3.11.0
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
-  DJANGO_SECRET_KEY: "django-insecure-)9i*oj8xt86)c-@il)5i#@^@&9(3x3j!_ztxk)654nv6jh#4u2"
-
+  DJANGO_SECRET_KEY : test_key
+  DB_NAME : "postgres"
+  DB_USER : "postgres"
+  DB_PASSWORD : "123"
+  DB_HOST : "localhost"
+  DB_PORT : "5432"
+  DEBUG : "True"
+  ALLOWED_HOSTS : "*"
 before_script:
   - python -m venv venv
   - source venv/bin/activate
