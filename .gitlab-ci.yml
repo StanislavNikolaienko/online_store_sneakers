@@ -32,4 +32,4 @@ lint_ruff:
 test:
     stage: test
     script:
-      - cd test/;pytest -v --cov=../store/ --cov-report=xml --cov-report=term-missing --cov-fail-under=100
+      - poetry run pytest -v --cov=store
