@@ -32,4 +32,4 @@ lint_ruff:
 test:
     stage: test
     script:
-        - test
+        - pytest
