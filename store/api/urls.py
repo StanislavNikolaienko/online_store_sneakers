@@ -1,12 +1,25 @@
 from django.urls import path
-from . import views
+
+from .views.clients import ClientCreate
+from .views.products import (
+    ProductListView,
+    ProductCreateView,
+    ProductRetrieveUpdateDestroy,
+)
 
 
 urlpatterns = [
-    path("", views.apiOverview, name="home"),
-    path("api/sneakers/", views.add_product, name="add_product"),
-    path("api/sneakers/all/", views.all_products, name="all-products"),
-    path("api/sneakers/<int:pk>/", views.update_product, name="update-product"),
-    path("api/sneakers/<int:pk>/", views.delete_product, name="delete-product"),
-    path("api/clients/", views.add_client, name="add_client"),
+    path("sneakers/", ProductListView.as_view(), name="all_products"),
+    path("sneakers/new/", ProductCreateView.as_view(), name="add_product"),
+    path(
+        "sneakers/<int:pk>/",
+        ProductRetrieveUpdateDestroy.as_view(),
+        name="update_product",
+    ),
+    path(
+        "sneakers/<int:pk>/",
+        ProductRetrieveUpdateDestroy.as_view(),
+        name="delete_product",
+    ),
+    path("clients/new/", ClientCreate.as_view(), name="add_client"),
 ]
