@@ -1,7 +1,14 @@
 image: python:3.11.0
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
-
+  DJANGO_SECRET_KEY : test_key
+  DB_NAME : "postgres"
+  DB_USER : "postgres"
+  DB_PASSWORD : "123"
+  DB_HOST : "localhost"
+  DB_PORT : "5432"
+  DEBUG : "True"
+  ALLOWED_HOSTS : "*"
 before_script:
   - python -m venv venv
   - source venv/bin/activate
@@ -17,6 +24,7 @@ cache:
 
 stages:
   - linting
+  - test
 
 lint_black:
   stage: linting
@@ -27,3 +35,8 @@ lint_ruff:
   stage: linting
   script:
     - ruff .
+
+test:
+    stage: test
+    script:
+      - python store/manage.py test
