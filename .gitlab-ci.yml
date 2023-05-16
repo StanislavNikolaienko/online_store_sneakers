@@ -32,4 +32,5 @@ lint_ruff:
 test:
     stage: test
     script:
-        - pytest
+      - export DJANGO_SETTINGS_MODULE=store.settings
+      - pytest
