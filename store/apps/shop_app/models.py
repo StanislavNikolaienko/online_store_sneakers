@@ -45,7 +45,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     description = models.TextField()
     image = models.ImageField()
-    token_product = models.CharField(max_length=255)
+    token_product = models.CharField(max_length=254)
 
     def __str__(self):
         return self.name
