@@ -151,5 +151,5 @@ CELERY_TASK_SERIALIZER = "json"
 
 # XRapidAPI
 XRapidAPIKey = config("XRapidAPIKey", default="my_default_secret_key")
-XRapidAPIHost = config("XRapidAPIHost")
-XRapidAPI_URL = config("XRapidAPI_URL")
+XRapidAPIHost = config("XRapidAPIHost", default="my_default_secret_host")
+XRapidAPI_URL = config("XRapidAPI_URL", default="my_default_secret_url")
