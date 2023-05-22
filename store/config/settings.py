@@ -59,12 +59,18 @@ WSGI_APPLICATION = "config.wsgi.application"
 # Database
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "postgres",
-        "USER": "postgres",
-        "PASSWORD": "postgres",
-        "HOST": "sneakers_db",
-        "PORT": "5432",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": config("DB_NAME"),
+        "USER": config("DB_USER"),
+        "PASSWORD": config("DB_PASSWORD"),
+        "HOST": config("DB_HOST"),
+        "PORT": config("DB_PORT"),
+        # "ENGINE": "django.db.backends.postgresql",
+        # "NAME": "postgres",
+        # "USER": "postgres",
+        # "PASSWORD": "postgres",
+        # "HOST": "sneakers_db",
+        # "PORT": "5432",
     }
 }
 
@@ -115,7 +121,6 @@ LOGGING = {
     },
 }
 
-
 # Internationalization
 
 LANGUAGE_CODE = "en-us"
@@ -137,10 +142,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "mediafiles")
 # Celery settings
 REDIS_HOST = "0.0.0.0"
 REDIS_PORT = "6379"
-CELERY_BROKER_URL = "redis://" + REDIS_HOST + ":" + REDIS_PORT + "/0"
+CELERY_BROKER_URL = f"redis://{REDIS_HOST}:{REDIS_PORT}/0"
 CELERY_BROKER_TRANSPORT_OPTIONS = {"visibility_timeout": 3600}
-# CELERY_BROKER_URL = "redis://localhost:6379"
-CELERY_RESULT_BACKEND = "redis://" + REDIS_HOST + ":" + REDIS_PORT + "/0"
+CELERY_RESULT_BACKEND = f"redis://{REDIS_HOST}:{REDIS_PORT}/0"
 CELERY_ACCEPT_CONTENT = ["application/json"]
 CELERY_RESULT_SERIALIZER = "json"
 CELERY_TASK_SERIALIZER = "json"

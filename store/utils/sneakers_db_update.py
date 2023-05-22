@@ -20,8 +20,12 @@ def get_sneakers():
         "GET", XRapidAPI_URL, headers=headers, params=querystring
     )
     data = response.json()
+    return data
 
-    for sneaker_data in data["results"]:
+
+def update_db():
+    # sneakers = get_sneakers()
+    for sneaker_data in get_sneakers()["results"]:
         try:
             sneaker, created = Product.objects.update_or_create(
                 token_product=sneaker_data["id"],
@@ -41,6 +45,3 @@ def get_sneakers():
                 "Multiple products found with the same token_product:"
                 f" {sneaker_data['id']}"
             )
-
-
-print(get_sneakers())

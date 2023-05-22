@@ -24,6 +24,8 @@ black = "^23.3.0"
 ruff = "^0.0.263"
 mock = "^5.0.2"
 pytest-django = "^4.5.2"
+pytest-celery = "^0.0.0"
+pytest-mock = "^3.10.0"
 
 [build-system]
 requires = ["poetry-core>=1.4.2"]
