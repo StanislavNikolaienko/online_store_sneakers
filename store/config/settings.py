@@ -60,11 +60,11 @@ WSGI_APPLICATION = "config.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": config("DB_NAME"),  # default="postgres"),
-        "USER": config("DB_USER"),  # , default="postgres"),
-        "PASSWORD": config("DB_PASSWORD"),  # , default="postgres"),
-        "HOST": config("DB_HOST"),  # , default="sneakers_db"),
-        "PORT": config("DB_PORT"),  # , default="5432"),
+        "NAME": config("DB_NAME", default="postgres"),
+        "USER": config("DB_USER", default="postgres"),
+        "PASSWORD": config("DB_PASSWORD", default="postgres"),
+        "HOST": config("DB_HOST", default="sneakers_db"),
+        "PORT": config("DB_PORT", default="5432"),
     }
 }
 
