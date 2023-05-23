@@ -2,21 +2,23 @@ from django.contrib import admin
 
 from .models import Client, Order, Product
 
-admin.site.register(Client)
-admin.site.register(Product)
-admin.site.register(Order)
-
 
 class ClientAdmin(admin.ModelAdmin):
-    list_display = ("name", "email", "phone", "address")
-    search_fields = ("name", "email", "phone", "address")
-    list_filter = ("name", "email", "phone", "address")
+    list_display = ("name", "email", "phone")
+    search_fields = ("name", "email", "phone")
+    list_filter = ("name", "email", "phone")
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ("name", "price", "stock")
-    search_fields = ("name", "price", "stock")
-    list_filter = ("name", "price", "stock")
+    list_display = ("name", "price", "image")
+    search_fields = (
+        "name",
+        "price",
+    )
+    list_filter = (
+        "name",
+        "price",
+    )
 
 
 class OrderAdmin(admin.ModelAdmin):
@@ -41,3 +43,8 @@ class OrderAdmin(admin.ModelAdmin):
         "order_status",
         "payment_status",
     )
+
+
+admin.site.register(Client, ClientAdmin)
+admin.site.register(Product, ProductAdmin)
+admin.site.register(Order, OrderAdmin)

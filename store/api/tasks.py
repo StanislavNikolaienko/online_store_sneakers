@@ -1,4 +1,4 @@
-from utils.sneakers_db_update import update_db
+from apps.shop_app.sneakers_db_update import update_db
 from celery import shared_task
 
 

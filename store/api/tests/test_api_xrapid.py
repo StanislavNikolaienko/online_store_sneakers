@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch
-from utils.sneakers_db_update import get_sneakers
+from apps.shop_app.rapidapi.receive_data import get_sneakers
 from .data import sneakers_data
 
 

@@ -29,6 +29,9 @@ class Payment(models.Model):
     def __str__(self):
         return self.payment_method
 
+    class Meta:
+        app_label = "shop_app"
+
 
 class Client(models.Model):
     name = models.CharField(max_length=50)
@@ -38,6 +41,9 @@ class Client(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        app_label = "shop_app"
 
 
 class Product(models.Model):
@@ -50,6 +56,9 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        app_label = "shop_app"
+
 
 class Order(models.Model):
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
@@ -59,3 +68,6 @@ class Order(models.Model):
     order_status = models.CharField(max_length=20, choices=OrderStatus.choices)
     payment_status = models.CharField(max_length=20, choices=PaymentStatus.choices)
     comment = models.TextField(blank=True, null=True)
+
+    class Meta:
+        app_label = "shop_app"

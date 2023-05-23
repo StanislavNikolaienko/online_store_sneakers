@@ -1,31 +1,16 @@
 import os
-import django
-import requests
 from django.core.exceptions import MultipleObjectsReturned
-
-from apps.shop_app.models import Product
-from config.settings import XRapidAPIKey, XRapidAPIHost, XRapidAPI_URL
+import django
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "store.config.settings")
 django.setup()
 
-
-def get_sneakers():
-    querystring = {"limit": "100"}
-    headers = {
-        "X-RapidAPI-Key": f"{XRapidAPIKey}",
-        "X-RapidAPI-Host": f"{XRapidAPIHost}",
-    }
-    response = requests.request(
-        "GET", XRapidAPI_URL, headers=headers, params=querystring
-    )
-    data = response.json()
-    return data
+from apps.shop_app.models import Product
+from apps.shop_app.rapidapi.receive_data import get_sneakers
 
 
-def update_db():
-    # sneakers = get_sneakers()
-    for sneaker_data in get_sneakers()["results"]:
+def update_db(data: dict):
+    for sneaker_data in data:
         try:
             sneaker, created = Product.objects.update_or_create(
                 token_product=sneaker_data["id"],
@@ -45,3 +30,7 @@ def update_db():
                 "Multiple products found with the same token_product:"
                 f" {sneaker_data['id']}"
             )
+
+
+api_data = get_sneakers()["results"]
+update_db(api_data)
