@@ -6,7 +6,6 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "store.config.settings")
 django.setup()
 
 from apps.shop_app.models import Product
-from apps.shop_app.rapidapi.receive_data import get_sneakers
 
 
 def update_db(data: dict):
@@ -30,7 +29,3 @@ def update_db(data: dict):
                 "Multiple products found with the same token_product:"
                 f" {sneaker_data['id']}"
             )
-
-
-api_data = get_sneakers()["results"]
-update_db(api_data)

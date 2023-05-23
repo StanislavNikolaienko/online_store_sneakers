@@ -2,7 +2,7 @@ import requests
 from config.settings import XRapidAPIKey, XRapidAPIHost, XRapidAPI_URL
 
 
-def get_sneakers(limit: int = "100"):
+def get_sneakers(limit: str = "100"):
     querystring = {"limit": limit}
     headers = {
         "X-RapidAPI-Key": f"{XRapidAPIKey}",
