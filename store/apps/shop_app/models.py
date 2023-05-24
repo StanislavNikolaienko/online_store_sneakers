@@ -29,6 +29,9 @@ class Payment(models.Model):
     def __str__(self):
         return self.payment_method
 
+    class Meta:
+        app_label = "shop_app"
+
 
 class Client(models.Model):
     name = models.CharField(max_length=50)
@@ -39,16 +42,22 @@ class Client(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        app_label = "shop_app"
+
 
 class Product(models.Model):
     name = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     description = models.TextField()
     image = models.ImageField()
-    token_product = models.CharField(max_length=255)
+    token_product = models.CharField(max_length=254)
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        app_label = "shop_app"
 
 
 class Order(models.Model):
@@ -59,3 +68,6 @@ class Order(models.Model):
     order_status = models.CharField(max_length=20, choices=OrderStatus.choices)
     payment_status = models.CharField(max_length=20, choices=PaymentStatus.choices)
     comment = models.TextField(blank=True, null=True)
+
+    class Meta:
+        app_label = "shop_app"

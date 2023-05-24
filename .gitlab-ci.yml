@@ -9,6 +9,7 @@ variables:
   DB_PORT : "5432"
   DEBUG : "True"
   ALLOWED_HOSTS : "*"
+
 before_script:
   - python -m venv venv
   - source venv/bin/activate
